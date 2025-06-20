@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "babaji-igw"{
   }
 }
 resource "aws_route" "default_internet_access"{
-  route_table-id = aws_vpc.babaji-vpc.default_route_table_id
+  route_table_id = aws_vpc.babaji-vpc.default_route_table_id
   destination_cidr_block = var.igwcidr
   gateway_id = aws_internet_gateway.babaji-igw
 }
@@ -56,12 +56,4 @@ resource "aws_route_table_association" "pub1"{
 resource "aws_route_table_association" "pub2"{
   route_table_id = aws_vpc.babaji-vpc.default_route_table_id
   subnet_id = aws_subnet.babaji-pub2
-}
-resource "aws_route_table_association" "pri1"{
-  route_table_id = aws_vpc.babaji-vpc.default_route_table_id
-  subnet_id = aws_subnet.babaji-pri
-}
-resource "aws_route_table_association" pri2{
-  route_table_id = aws_vpc.babaji-vpc.default_network_acl_id
-  subnet_id = aws_subnet.babaji-pri2
 }
